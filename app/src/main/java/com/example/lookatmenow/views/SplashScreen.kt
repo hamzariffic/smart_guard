@@ -1,7 +1,5 @@
 package com.example.lookatmenow.views
 
-import androidx.compose.animation.Animatable
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -10,17 +8,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.lookatmenow.R
+import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen(modifier: Modifier) {
+fun SplashScreen(modifier: Modifier, onSplashComplete: () -> Unit) {
     Box(modifier = Modifier.fillMaxSize()
         .background(
             colorScheme.onTertiary, MaterialTheme.shapes.extraLarge
@@ -35,6 +32,15 @@ fun SplashScreen(modifier: Modifier) {
             ),
             contentScale = ContentScale.Fit
         )
+
+//        Delay Launch by 4s
+        LaunchedEffect(key1 = true) {
+            delay(4000) 
+            onSplashComplete()
+        }
+
+//        Completing navigation
+        println("Delay complete, taking you home ...")
     }
 }
 
@@ -42,5 +48,5 @@ fun SplashScreen(modifier: Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun SplashScreenPreview() {
-    SplashScreen(Modifier)
+    SplashScreen(Modifier, onSplashComplete = { /*TODO*/ })
 }
