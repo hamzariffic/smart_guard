@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.lookatmenow.domain.visitors
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -22,13 +23,6 @@ data class Visitor(
     val name: String,
     val purpose: String,
     val timestamp: LocalDateTime
-)
-
-@RequiresApi(Build.VERSION_CODES.O)
-val visitors = listOf(
-    Visitor("John Doe", "Return Playstation", LocalDateTime.now().minusDays(2)),
-    Visitor("Jane Smith", "Package delivery", LocalDateTime.now().minusHours(1)),
-    Visitor("Bob Johnson", "Meeting with CEO", LocalDateTime.now().minusMinutes(30))
 )
 
 @RequiresApi(Build.VERSION_CODES.O)
