@@ -44,7 +44,8 @@ fun HomeScreen(
                 .background(colorScheme.onTertiary, MaterialTheme.shapes.extraLarge)
                 .fillMaxWidth()
         ) {
-    //            Display individuals at the entrance
+
+    //      Display individuals at the entrance
             Text(text = "Visitor on the door!", modifier = Modifier.align(Alignment.Center),
                 textAlign = TextAlign.Center,
                 fontSize = MaterialTheme.typography.titleLarge.fontSize,)
