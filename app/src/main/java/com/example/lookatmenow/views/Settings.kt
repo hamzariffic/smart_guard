@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -27,6 +28,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -52,13 +54,13 @@ fun Settings(modifier: Modifier){
             elevation = CardDefaults.cardElevation(4.dp)
         ) {
             Column(
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(16.dp).fillMaxWidth().fillMaxHeight(),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 // Profile Image
                 Image(
-                    painter = rememberImagePainter(R.drawable.smhg),
+                    painter = painterResource(id = R.drawable.smhg),
                     contentDescription = "Profile Image",
                     modifier = Modifier
                         .size(80.dp)
@@ -68,20 +70,20 @@ fun Settings(modifier: Modifier){
                 Spacer(modifier = Modifier.height(8.dp))
                 // Name
                 Text(
-                    text = "Seven Kay",
+                    text = "Christine Nyakoa",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.primary
                 )
                 // Location
                 Text(
-                    text = "Islamabad",
+                    text = "Ongata Rongai",
                     fontSize = 16.sp,
                     color = Color.Gray
                 )
                 // Member since
                 Text(
-                    text = "Since 2022",
+                    text = "Since 2024",
                     fontSize = 14.sp,
                     color = Color.Gray
                 )
@@ -93,13 +95,12 @@ fun Settings(modifier: Modifier){
         // Buttons
         val buttonData = listOf(
             "Emergency Contacts" to R.drawable.emergency_contact,
-            "Add Members" to R.drawable.add_members,
+            stringResource(R.string.addmembers) to R.drawable.addmembers,
             "Language" to R.drawable.language,
-            "About Us" to R.drawable.aboutUs,
+            "About Us" to R.drawable.aboutus,
             "Settings" to R.drawable.settings,
             "Log Out" to R.drawable.logout
         )
-
         buttonData.forEach { (text, icon) ->
             Row(
                 modifier = Modifier
@@ -128,5 +129,4 @@ fun Settings(modifier: Modifier){
 @Preview(showBackground = true)
 @Composable
 fun SettingsPreview(modifier: Modifier = Modifier) {
-    Settings(modifier = Modifier)
-}
+    Settings(modifier = Modifier)}
