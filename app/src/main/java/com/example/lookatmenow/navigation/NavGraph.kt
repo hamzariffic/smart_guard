@@ -23,40 +23,32 @@ fun SetupNavGraph(
     navController: NavHostController,
     startDestination: String = Screen.SplashScreen.route
 ) {
-    Scaffold(
-        bottomBar = {
-            if (navController.currentBackStackEntryAsState().value?.destination?.route != Screen.SplashScreen.route) {
-                BottomBar(navController)
-            }
-        }
-    ) { innerPadding ->
-        NavHost(
-            navController = navController,
-            startDestination = startDestination,
-            modifier = Modifier.padding(innerPadding)
-        ) {
-            composable(Screen.SplashScreen.route) {
-                SplashScreen(
-                    modifier = Modifier,
-                    onSplashComplete = {
-                        navController.navigate(Screen.HomeScreen.route) {
-                            popUpTo(Screen.SplashScreen.route) { inclusive = true }
-                        }
+    NavHost(
+        navController = navController,
+        startDestination = startDestination,
+        modifier = modifier
+    ) {
+        composable(Screen.SplashScreen.route) {
+            SplashScreen(
+                modifier = Modifier,
+                onSplashComplete = {
+                    navController.navigate(Screen.HomeScreen.route) {
+                        popUpTo(Screen.SplashScreen.route) { inclusive = true }
                     }
-                )
-            }
-            composable(Screen.HomeScreen.route) {
-                HomeScreen(
-                    modifier = Modifier,
-                    navHostController = navController
-                )
-            }
-            composable(Screen.Notifications.route) {
-                Notifications(modifier = Modifier)
-            }
-            composable(Screen.Settings.route) {
-                Settings(modifier = Modifier)
-            }
+                }
+            )
+        }
+        composable(Screen.HomeScreen.route) {
+            HomeScreen(
+                modifier = Modifier,
+                navHostController = navController
+            )
+        }
+        composable(Screen.Notifications.route) {
+            Notifications(modifier = Modifier)
+        }
+        composable(Screen.Settings.route) {
+            Settings(modifier = Modifier)
         }
     }
 }

@@ -9,3 +9,5 @@ sealed class Screen(val route: String) {
     data object Notifications: Screen("notifications_screen")
     data object Settings : Screen("settings_screen")
 }
+
+data class ScreenRoute(val route: String)
