@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -60,6 +61,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
 //    splashscree's dependency!
     implementation(libs.androidx.core.splashscreen)
+//    Firebase BoM
+    implementation(libs.firebase.bom)
+    implementation(libs.firebase.analytics)
+
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.navigation.runtime.ktx)
